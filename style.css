@@ -1,0 +1,110 @@
+body{
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background-color: lightblue;
+    color: white;
+    font-family:monospace;
+    font-weight: 600;    
+}
+
+#header,#footer{
+    height: 60px;
+    background-color: rgb(5, 6, 65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header{
+    color:rgb(173, 174, 190);
+    justify-content: flex-start;
+    padding-left: 20px;
+    font-size: 2em;
+}
+
+#display{
+    display: flex;
+    border: 1px ridge rgb(113, 114, 124);
+    border-bottom: 3px ridge rgb(113, 114, 124);
+    border-radius: 10px;
+    width: 400px;
+    height: 100px;
+    background-color: rgb(157, 158, 173);
+    flex: 1 1 100%;
+    flex-wrap: wrap;   
+}
+
+#main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+#calc{
+    display: flex;
+    background-color: rgb(5, 6, 65);
+    border: 10px ridge rgb(113, 114, 124);
+    border-radius: 10px;
+    width: 400px;
+    height: 505px;
+    flex-wrap: wrap;
+    margin: 30px;
+    flex: 0 1 auto;
+}
+
+button{
+    height: 80px;
+    min-width: 100px;
+    background-color: rgb(58, 64, 138);
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: monospace;
+    border-radius: 7px;
+}
+
+button:active{
+    background-color:rgb(81, 85, 146);
+}
+
+
+
+.contentrow{
+    display: flex;
+    height: 80px;
+}
+
+a{
+    text-decoration: none;
+    color: gray;
+}
+
+#displayInfo{
+    display: flex;
+    height: 30px;
+    flex: 1 1 100%;
+    font-size: 16px;
+    font-weight: 100;
+    align-items: center;
+    padding-left :6px;
+
+}
+
+#displayResult{
+    margin: 0px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    font-size: 64px;
+    flex:1;
+    max-height: 70px;
+    padding-right: 4px;
+}
+
+#AC,#equals,#neg,#backspace,.operand{
+    background-color: rgb(13, 14, 82);
+}
