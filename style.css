@@ -105,6 +105,6 @@ a{
     padding-right: 4px;
 }
 
-#AC,#equals,#neg,#backspace,.operand{
+#c,#equals,#neg,#backspace,.operand{
     background-color: rgb(13, 14, 82);
 }

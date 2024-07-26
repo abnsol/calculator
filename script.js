@@ -72,7 +72,7 @@ function evaluate(){
     if (Number.isNaN(result)){
         displayResult.textContent = "invalid Operation";
         displayResult.style.fontSize = "30px";
-        displayInfo.textContent = 'press AC';
+        displayInfo.textContent = 'press C';
         return;
     }
 
@@ -103,7 +103,7 @@ const display = (result) => {
     if (Number.isNaN(result)){
         displayResult.textContent = "invalid Operation";
         displayResult.style.fontSize = "30px";
-        displayInfo.textContent = 'press AC';
+        displayInfo.textContent = 'press C';
         return;
     }
     // change the fontsize if result > 9 digits
@@ -178,7 +178,7 @@ function addGlobalEventListener(type,selector,callback){
 
 // Event handlers
 addGlobalEventListener('click','#equals',evaluate);
-addGlobalEventListener('click','#AC',clear);
+addGlobalEventListener('click','#c',clear);
 addGlobalEventListener('click','#neg',reverseSign);
 addGlobalEventListener('click',"#backspace",backSpace);
 addGlobalEventListener('click','.digit',(e) => {
