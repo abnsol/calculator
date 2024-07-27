@@ -17,19 +17,12 @@ Welcome to my Calculator project, part of [The Odin Project](https://www.theodin
 
 Check out the live demo [here](https://abnsol.github.io/calculator/).
 
-## Installation
+## Clone this repository
 
-To clone and run this project locally, follow these steps:
-
-1. Clone the repository:
-    ```bash
+-   ```bash
     git clone git@github.com:abnsol/calculator.git
     ```
-2. Navigate to the project directory:
-    ```bash
-    cd calculator
-    ```
-3. Open `index.html` in your browser to view the calculator.
+
 
 ## Learning Outcomes
 
