@@ -15,11 +15,11 @@ let result = '';
 let afterOperand = false; // where to insert the clicked digit
 let afterEquality = false; // to continue operation or to start from zero
 
-function operate(operand1,operand2,operator){
-    const operations = {
+function operate(operand1,operand2,operator){ // for evaluate function
+    const operations = {                      // don't change this function
         "+":add(operand1,operand2),
         "-":sub(operand1,operand2),
-        "x":mul(operand1,operand2),
+        "*":mul(operand1,operand2),
         "/":div(operand1,operand2),
         "%":mod(operand1,operand2),
         }
@@ -123,7 +123,7 @@ const display = (result) => {
 const reverseSign = () => {
     if (!afterOperand){
         if (operand1.length < 9){
-            operand1 = String(0 - parseFloat(operand1));
+            operand1 = String(0 - parseFloat(operand1)); // reverse sign  = 0 - sign
             display(operand1)
         }else{
             displayInfo.textContent = "9 digits max"; // prevent digit overflow in display
@@ -157,6 +157,10 @@ function backSpace(){
             //handles multiple calculations
             str = String(result)
             operand1 = str.substring(0,str.length - 1);
+            if (isNaN(operand1) || operand1 == ''){ // empty operand means refresh
+                clear();
+                return;
+            }
             result = parseFloat(operand1);
             display(operand1);
         }
@@ -190,3 +194,17 @@ addGlobalEventListener('click','.operand',(e) => {
     returnOperator(key);
 });
 
+
+// add keyBoard support
+const isNumeric = (value) => !isNaN(value); //is number
+const operators = ['+','-','*','/','%'];    //operators
+
+addGlobalEventListener('keydown','body',(event) => {
+    const key = event.key;
+    
+    if (isNumeric(key) || key === '.') concatElements(key);
+    if (operators.includes(key)) returnOperator(key);
+    if (key === 'Enter') evaluate();
+    if (key === 'Backspace') backSpace();
+    if (key === 'c') clear();
+});
