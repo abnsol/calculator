@@ -17,14 +17,15 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1rem;
+    font-size: calc(0.75rem + 0.25vw);
+    flex: 1 1 100%;
 }
 
 #header{
     color:rgb(173, 174, 190);
     justify-content: flex-start;
-    padding-left: 20px;
-    font-size: 1.15rem;
+    padding-left: calc(0.5rem + 2vw);
+    font-size: calc(0.5rem + 1vw);
 }
 
 #display{
@@ -44,7 +45,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1;
+    flex: 2 0 100%;
 }
 
 #calc{
