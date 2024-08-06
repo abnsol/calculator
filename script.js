@@ -29,24 +29,16 @@ function operate(operand1,operand2,operator){ // for evaluate function
 function concatElements(element){
 
     if(!afterOperand){
-        if(operand1.length == 9){
-            displayInfo.textContent = "9 digits max";
-        }else{
-            if (!(operand1.includes('.') && (element == '.'))) operand1 = operand1.concat(element);
-        }
+        if (!(operand1.includes('.') && (element == '.'))) operand1 = operand1.concat(element);
         display(operand1);
         
     }else{
-        if(operand2.length == 9){
-            displayInfo.textContent = "9 digits max";
+        if (!afterEquality){
+            if (!(operand2.includes('.') && (element == '.'))) operand2 = operand2.concat(element);
         }else{
-            if (!afterEquality){
-                if (!(operand2.includes('.') && (element == '.'))) operand2 = operand2.concat(element);
-            }else{
-                operand1 = result;
-                operand2 = element;
-                afterEquality = false;
-            }
+            operand1 = result;
+            operand2 = element;
+            afterEquality = false;
         }display(operand2);
     }
 } 
@@ -71,7 +63,6 @@ function evaluate(){
     // Don't return NaN
     if (Number.isNaN(result)){
         displayResult.textContent = "invalid Operation";
-        displayResult.style.fontSize = "30px";
         displayInfo.textContent = 'press C';
         return;
     }
@@ -88,7 +79,6 @@ function evaluate(){
 const clear = () => { 
     displayResult.textContent = 0;
     displayInfo.textContent = '';
-    displayResult.style.fontSize = '60px';
     operand1 = '';
     operand2 = '';
     result = '';
@@ -102,19 +92,7 @@ const display = (result) => {
     // don't return NaN
     if (Number.isNaN(result)){
         displayResult.textContent = "invalid Operation";
-        displayResult.style.fontSize = "30px";
         displayInfo.textContent = 'press C';
-        return;
-    }
-    // change the fontsize if result > 9 digits
-    if (len <= 9){
-        displayResult.style.fontSize = '60px';
-    }else if(len <= 13){
-        displayResult.style.fontSize = '3em';
-    }else if(len <= 18){
-        displayResult.style.fontSize = '2em';
-    }else{
-        displayInfo.textContent = "large number";
         return;
     }
     displayResult.textContent = result;
@@ -125,17 +103,13 @@ const reverseSign = () => {
         if (operand1.length < 9){
             operand1 = String(0 - parseFloat(operand1)); // reverse sign  = 0 - sign
             display(operand1)
-        }else{
-            displayInfo.textContent = "9 digits max"; // prevent digit overflow in display
-        }   
+         }   
     }else{
         if(!afterEquality){ //after operand before equal sign
             if (operand2.length < 9){
                 operand2 = String(0 - parseFloat(operand2));
                 display(operand2)
-            }else{
-                displayInfo.textContent = "9 digits max";
-            }
+             }
         }else{
             result = 0 - parseFloat(result); // reverse sign of operand1 = prev result for multiple operation 
             operand1 = String(result);
